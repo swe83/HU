@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block body %}
+
+
+<div class="container my-5" id="container-ideas">
+  <h3 class = "text-center page-title mb-3">View Ideas & Resources</h3>
+  <p>Here are the ideas that others have come up with and the resources they are willing to share, sorted according to the number of likes they have. We will email the posts with the most likes to Alameda County Office every six months, so please scroll down and like the posts you think would be the most helpful and practical. Reply if you have any comments, resources, or suggestions that can help improve and execute the ideas or utilize the resources! </p>
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{error}}
+    </div>
+  {% endif %}
+  {% if success %}
+    <div class="alert alert-success" role="alert">
+      {{success}}
+    </div>
+  {% endif %}
+  {% for idea in ideas %}
+    <div class="card my-5 card-ideas">
+      <div class="card-body">
+        <div class="row">
+          <div class= "col-md-2">Title:</div>
+          <div class="col-md-10">{{idea[1].title}}</div>
+        </div>
+        
+        <div class="row">
+          <div class= "col-md-2">Description:</div>
+          <div class="col-md-10">{{idea[1].description}}</div>
+        </div>
+
+        <div class="row">
+          <div class= "col-md-2">Skills/Resources:</div>
+          <div class="col-md-10">{{idea[1].skills}}</div>
+        </div>
+
+        <div class="row">
+          <div class= "col-md-2">Name:</div>
+          <div class="col-md-10">{{idea[1].first_name}} {{idea[1].last_name}}</div>
+        </div>
+
+        <div class="row">
+          <div class= "col-md-2">Email:</div>
+          <div class="col-md-10">
+            {% if idea[1].email %}
+              {{idea[1].email}}
+            {% else %}
+              N/A
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class= "col-md-2">Phone Number:</div>
+          <div class="col-md-10">
+            {% if idea[1].phone %}
+              {{idea[1].phone}}
+            {% else %}
+              N/A
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-right">
+            <form action="like" method="POST">
+              <input type="hidden" id="idea_id" name="idea_id" value="{{idea[1].id}}"/>
+              <span class="mx-3">{{idea[0]}}</span>
+              {% if idea[3]==True %}
+                <div class="btn btn-sm btn-primary">like</div>
+              {% else %}
+                <input type="submit" value="like" class="btn btn-sm btn-secondary"/>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% for reply in idea[2] %}
+      <div class="card ml-5 mb-2">
+        <div class="card-body">
+          {{reply.message}}
+        </div>
+      </div>
+  
+    {% endfor %}
+  
+    <div class="ml-5 mt-5">
+      <form action="reply" method="POST">
+        <input type="hidden" id="idea_id" name="idea_id" value="{{idea[1].id}}"/>
+        
+        <div class="form-group">
+          <textarea placeholder="Reply to this idea" id="reply_text" name="reply_text" rows="3" cols="50" class="form-control"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-sm btn-primary">Reply</button>
+        
+      </form>
+    </div>
+  {% endfor %}
+  
+</div>
+{% endblock %}

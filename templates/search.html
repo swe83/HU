@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class= "container my-5">
+  <h3 class = "text-center page-title">Find Nearest Places of Operations for Unhoused</h3>
+  {%  if error %}
+  <div class = "alert alert-danger" role = "alert">
+    {{error}}
+  </div>
+  {% endif %}
+  <form action = "search" method = "post">
+    <div class = "row mt-5">
+      <div class = "col-md-3">
+        <select id = "category" name = "category" class = "form-control">
+          {% for category in categories %}
+          <option value = "{{category.id}}" {% if category.id == category_id %} selected="selected" {% endif %}>{{category.name}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class = "col-md-8">
+        <input value = "{{zipcode}}" type = "text" class = "form-control" id = "zipcode" name = "zipcode" placeholder = "Please enter the zipcode to find the nearest homelessness resources"/>
+      </div>
+      <div class = "col-md-1">
+        <input type = "submit" class = "btn btn-primary" value = "Search" />
+      </div>
+    </div>
+  </form>
+  {% for result in results %}
+  <div class = "card my-5 card-result">
+    <div class = "card-body">
+      <div class = "row">
+        <div class = "col-md-3">
+          {% if result[2].image_file_name %}
+            <img src = "static/{{result[2].image_file_name}}" alt = "{{result[1]}}" class = "place-image"/>
+          {% else %}
+            no image
+          {% endif %}
+        </div>
+        <div class = "col-md-9">
+          <strong>Name:</strong> {{result[1]}}
+          <br/>
+          <strong>Category:</strong> {{result[3]}}
+          <br/>
+          <strong>Description:</strong> {{result[2].description}}
+          <br/>
+          <strong>Address:</strong> {{result[2].street_address}},  {{result[2].city}}, {{result[2].state}} {{result[2].zipcode}}
+          <br/>
+          {% if result[2].email %}
+            <strong>Email:</strong> {{result[2].email}}
+          {% else %}
+            <strong>Email: </strong> N/A
+          {% endif %}
+          <br/>
+          <strong>Phone:</strong> {{result[2].phone}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

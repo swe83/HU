@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div id = "carouselControls" class = "carousel slide section" data-ride = "carousel">
+  <div class = "carousel-inner text-center py-5">
+    <div class = "carousel-item active">
+      <h3 class = "mt-4">Search</h3>
+      <p class = "mx-auto">
+        Search various places of operations for the unhoused nearest to you by inputting your ZIP code and the type of place you’re looking for. 
+      </p>
+      <a class = "btn btn-light btn-carousel" href = "/search">Search</a>
+    </div>
+    
+    <div class = "carousel-item">
+      <h3 class = "mt-4">Upload</h3>
+      <p class = "mx-auto">
+        Submit a short form to upload information about your place of operation for the unhoused to the HU search database. 
+      </p>
+      <a class = "btn btn-light btn-carousel" href = "/upload">Upload</a>
+    </div>
+
+    <div class = "carousel-item">
+      <h3 class = "mt-4">Submit Ideas & Resources</h3>
+      <p class = "mx-auto">
+        Whether you are unhoused or not, share your ideas on how to help unhoused people and the resources or skill sets that you can contribute.   
+      </p>
+      <a class = "btn btn-light btn-carousel"  href = "/submit_ideas">Submit Ideas & Resources</a>
+    </div>
+
+    <div class = "carousel-item">
+      <h3 class = "mt-4">View Ideas & Resources</h3>
+      <p class = "mx-auto">
+        Look at the ideas that others have come up with and resources they are willing to share, make comments and suggestions, and see if you can help. 
+      </p>
+      <a class = "btn btn-light btn-carousel" href = "/ideas">View Ideas & Resources</a>
+    </div>
+
+    <div class = "carousel-item">
+      <h3 class = "mt-4">Resources</h3>
+      <p class = "mx-auto">
+        Learn about volunteering opportunities, donation information, and the latest news, bills, propositions, and petitions relating to unhoused people. 
+      </p>
+      <a class = "btn btn-light btn-carousel" href = "/resources">Resources</a>
+    </div>
+    
+    
+  </div>
+
+  <a class = "carousel-control-prev" href = "#carouselControls" role = "button" data-slide = "prev">
+    <span class = "carousel-control-prev-icon" aria-hidden = "true"></span>
+    <span class = "sr-only">previous</span>
+  </a>
+
+  <a class = "carousel-control-next" href = "#carouselControls" role = "button" data-slide = "next">
+    <span class = "carousel-control-next-icon" aria-hidden = "true"></span>
+    <span class = "sr-only">next</span>
+  </a>
+</div>
+
+<div id = "mission" class = "section text-center p-5">
+  <div id = "mission-content">
+  <h3 class = "mt-5">Mission & Goal</h3>
+  <p class = "mx-auto mt-4">
+    Our mission is to increase the quality of life for unhoused people and create an active and vibrant community of both the unhoused and their allies. <br> 
+    <br>
+    Haven for Unhoused serves as: <br>
+    1) a thorough ZIP code-based interactive search of places of operations for the unhoused <br>
+    2) a community where people can share their ideas and resources <br>
+    3) a place where people can find up-to-date information regarding homelessness
+  </p>
+  </div>
+</div>
+
+<div id = "video" class = "section text-center p-5">
+  <h3 class = "mb-3">A Brief Guide to Our Website</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/JJ7wKsnaP4A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div id = "statistics" class = "section text-center p-5">
+  <h3>Current US Homelessness Statistics</h3>
+  <div class = "row mt-5">
+    <div class = "col-md-3">
+      <h4 id= "statistic_homelessnumber" class = "statistic" data-target = "580466">0</h4>
+      <h5>unhoused people</h5>
+    </div>
+    <div class = "col-md-3">
+      <h4 id= "statistic_unshelteredhomeless" class = "statistic" data-target = "226080">0</h4>
+      <h5>unsheltered unhoused people</h5>
+    </div>
+    <div class = "col-md-3">
+      <h4 id= "statistic_death" class = "statistic" data-target = "13000">0</h4>
+      <h5>deaths per year</h5>
+    </div>
+    <div class = "col-md-3">
+      <h4 id= "statistic_life" class = "statistic" data-target = "50">0</h4>
+      <h5>years of life expectancy</h5>
+    </div>
+  </div>
+<div class = "row mt-4">
+  <div class = "col-md-12 text-right mt-2">
+  Source: endhomelessness.org, nationalhomeless.org
+  </div>
+</div>
+</div>
+
+<script>
+  animateStatistics();
+</script>
+
+{% endblock %}

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora:wght@500&family=Montserrat&family=Noto+Serif&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@500&family=Poppins:wght@500&family=Roboto&display=swap');
+
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+}
+.carousel-inner{
+  background: url("/static/images/unhoused.png") no-repeat center center;
+  background-size: cover;
+  color: #FFF;
+  
+}
+.carousel-item p{
+  max-width:50%;
+}
+
+.carousel-inner{
+  min-height:300px;
+}
+
+nav a:link, nav a:visited{
+  color: #FFF;
+}
+nav a:hover, nav a:active{
+  color: #FFFFDD;
+}
+#mission{
+  background-color: #FFFFDD; /*get big image*/
+  color:#0E642E;
+  min-height:300px;
+}
+.place-image{
+  max-width: 250px;
+  
+}
+
+.profile-image{
+  width: 100%;
+  height: 400px;
+}
+
+.bg-dark{
+  background-color:#3B784E !important;
+}
+
+#statistics{
+  background-color:#e5ff9a;
+  color:#0E642E;
+}
+#mission-content{
+}
+.btn-carousel{
+  background:#03C04A;
+  border-color:#03C04A;
+  color: #FFF;
+}
+
+.card-result,.card-ideas{
+  background: #e5ff9a;
+  color: #0E642E;
+}
+
+#video{
+  color: #0E642E;
+}
+
+#container-ideas{
+  color: #000;
+}
+#logo{
+  max-width: 100px
+}
+.btn-primary{
+  background:#D46C4E;
+  border-color:#D46C4E;;
+  color: #FFF;
+}
+
+#our-story{
+  background: url("/static/images/our_story.png") no-repeat center center;
+  color: #FFF;
+  background-size: cover;
+}
+#our-team{
+  background: #FFF;
+  color: #000;
+}
+
+.resource-circle{
+  border: 1px solid #000;
+  border-radius: 175px;
+  -moz-border-radius: 175px;
+  -webkit-border-radius: 175px;
+  padding: 0px 80px;
+}
+
+.btn-resource{
+  background: #FFFFDD;
+  text-decoration: underline;
+}
+.btn-resource:link,
+.btn-resource:visited
+{
+  text-decoration: underline;
+}
+
+.btn-resource:hover,
+.btn-resource:active{
+  background: #43978D;
+  text-decoration: underline;
+  color: #FFFFDD;
+}
+
+#resource-circle-volunteering-opportunities{
+  background: #264D59;
+  
+}
+
+#resource-circle-donation-information{
+  background: #43978D;
+}
+
+#resource-circle-bills-and-props{
+  background: #F9E07F;
+}
+
+#resource-circle-news{
+  background: #F9AD6A;
+}
+
+#resource-circle-petitions{
+  background: #D46C4E;
+}
+
+#logo-link{
+  font-size: 1.75em;
+  font-family: 'Noto Serif', serif;
+
+}
+
+#logo-link:link,
+#logo-link:visited,
+#logo-link:hover,
+#logo-link:active{
+  text-decoration: none;
+}
+
+#contact{
+  background: #9dd227;
+  color: #264D59;
+}
+
+#contact a:link,
+#contact a:visited,
+#contact a:hover,
+#contact a:active{
+  color: #3B784E;
+}
+
+.carousel-item h3{
+  color: #FFFFDD;
+}
+
+#mission h3, #video h3, #statistics h3{
+  font-weight: 800;
+}
+.page-title{
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+.profile-card-header{
+  padding: 0;
+}
+.container{
+  min-height: 540px;
+}
+.our-team-title{
+  color: #D46C4E;
+}
+.navbar-toggler-icon{
+  color: #FFF;
+  margin-right:20px;
+}

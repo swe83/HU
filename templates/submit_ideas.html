@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block body %}
+
+
+<div class="container my-5" id="container-ideas">
+  <h3 class = "text-center page-title mb-3">Submit Ideas & Resourcess</h3>
+  <p>Do you have ideas that could benefit the unhoused but lack resources? Do you have skills, equipment, space, volunteers, or other resources that you can potentially use to help the unhoused but are not exactly sure how? <br> 
+    <br>
+    Share them here so that other people can like and reply with comments, resources, or suggestions that can help improve and execute the ideas or utilize the resources! We will email the posts with the most likes to Alameda County Office every six months.
+  </p>
+  {% if error %}
+    <div class="alert alert-danger" role="alert">
+      {{error}}
+    </div>
+  {% endif %}
+  {% if success %}
+    <div class="alert alert-success" role="alert">
+      {{success}}
+    </div>
+  {% endif %}
+  {% if login_required %}
+    <div class="alert alert-warning" role="alert">
+      You must login in order to submit this form.
+    </div>
+  {% else %}
+  <form action="submit_ideas" method="POST">
+    <div class="form-group">
+      <label for="title">Title of Idea/Resource:</label>
+      <input type="text" class="form-control" id="title" name="title" required />
+      <div class="invalid-feedback">Title is required</div>
+    </div>
+
+    <div class="form-group">
+      <label for="category_id">Category:</label>
+      <select class="form-control" id="category_id" name="category_id">
+        {% for category in categories %}
+          <option value="{{category.id}}">{{category.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" required rows="5" cols="20"></textarea>
+      <div class="invalid-feedback">Description is required</div>
+    </div>
+
+    <div class="form-group">
+      <label for="skills">Skills/resources you have (write N/A if none):</label>
+      <input type="text" class="form-control" id="skills" name="skills" required />
+      <div class="invalid-feedback">Skills/resources is required</div>
+    </div>
+
+    <div class="form-group">
+      <label for="zip_code">Residing ZIP Code:</label>
+      <input type="text" class="form-control" id="zip_code" name="zip_code" required />
+      <div class="invalid-feedback">ZIP code is required</div>
+    </div>
+
+    <div class="form-group">
+      <label for="first_name">First Name:</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" required />
+      <div class="invalid-feedback">First name is required</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="last_name">Last Name:</label>
+      <input type="text" class="form-control" id="last_name" name="last_name" required />
+      <div class="invalid-feedback">Last name is required</div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" />
+
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number:</label>
+      <input placeholder = "Please type your phone number in the following format: (999) 999-9999" type="phone" class="form-control" id="phone" name="phone" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+  </form>
+  {% endif %}
+
+  
+</div>
+{% endblock %}
